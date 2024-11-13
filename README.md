@@ -64,7 +64,7 @@ This function calculates the total distance of a route, ensuring that every leg 
 
 ### Example Output
 
-For the given distance matrix, the output might look like:
+For the given distance matrix, the output will look like:
 
 ```plaintext
 Minimum distance: 9
