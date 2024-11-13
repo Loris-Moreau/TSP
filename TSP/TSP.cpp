@@ -57,8 +57,8 @@ int main()
     while (next_permutation(cities.begin() + 1, cities.end())); // Fix the first city to reduce duplicate routes
 
     // Output the results
-    cout << "Minimum distance: " << minDistance << '\n';
-    cout << "Best route: ";
+    cout << "Minimum distance : " << minDistance << '\n';
+    cout << "Best route : ";
     for (const int city : bestRoute)
     {
         cout << cityNames[city] << " ";
