@@ -6,30 +6,30 @@
 using namespace std;
 
 // Func that calculates the total distance of a route (Brute Force)
-int calculateDistance(vector<vector<int>>& distMatrix, vector<int>& route)
+int calculateDistance(const vector<vector<int>>& dist_matrix, const vector<int>& route)
 {
     int totalDistance = 0;
     for (int i = 0; i < (int)route.size() - 1; i++)
     {
-        if (distMatrix[route[i]][route[i + 1]] == INT_MAX) // Check for unreachable path
+        if (dist_matrix[route[i]][route[i + 1]] == INT_MAX) // Check for unreachable path
         {
             return INT_MAX; // Unreachable (stupidly high num)
         }
-        totalDistance += distMatrix[route[i]][route[i + 1]];
+        totalDistance += dist_matrix[route[i]][route[i + 1]];
     }
     // Check return path
-    if (distMatrix[route[route.size() - 1]][route[0]] == INT_MAX) 
+    if (dist_matrix[route[route.size() - 1]][route[0]] == INT_MAX) 
     {
         return INT_MAX;
     }
-    totalDistance += distMatrix[route[route.size() - 1]][route[0]];
+    totalDistance += dist_matrix[route[route.size() - 1]][route[0]];
     return totalDistance;
 }
 
 int main()
 {
     // INT_MAX = unreachable paths
-    vector<vector<int>> distMatrix =
+    const vector<vector<int>> dist_matrix =
         {
         {0, 2, 2, INT_MAX, INT_MAX}, // A
         {2, 0, 3, 3, 1}, // B
@@ -39,7 +39,7 @@ int main()
         };
 
     vector<int> cities = {0, 1, 2, 3, 4}; // Cities represented by indices (A, B, C, D, E)
-    vector<char> cityNames = {'A', 'B', 'C', 'D', 'E'};
+    const vector<char> cityNames = {'A', 'B', 'C', 'D', 'E'};
     
     int minDistance = INT_MAX;
     vector<int> bestRoute;
@@ -47,10 +47,10 @@ int main()
     // Try every possible route by generating permutations
     do
     {
-        int currentDistance = calculateDistance(distMatrix, cities);
-        if (currentDistance < minDistance)
+        const int current_distance = calculateDistance(dist_matrix, cities);
+        if (current_distance < minDistance)
         {
-            minDistance = currentDistance;
+            minDistance = current_distance;
             bestRoute = cities;
         }
     }
@@ -59,7 +59,7 @@ int main()
     // Output the results
     cout << "Minimum distance: " << minDistance << '\n';
     cout << "Best route: ";
-    for (int city : bestRoute)
+    for (const int city : bestRoute)
     {
         cout << cityNames[city] << " ";
     }
