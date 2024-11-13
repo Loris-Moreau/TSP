@@ -157,7 +157,7 @@
     <ClCompile Include="TSP.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="README.md" />
+    <Content Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
