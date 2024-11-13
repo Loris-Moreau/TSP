@@ -32,13 +32,13 @@ int main()
     const vector<vector<int>> dist_matrix =
         {
         {0, 2, 2, INT_MAX, INT_MAX}, // A
-        {2, 0, 3, 3, 1}, // B
-        {2, 3, 0, 1, 3}, // C
-        {INT_MAX, 3, 1, 0, 3}, // D
-        {INT_MAX, 1, 3, 3, 0}  // E
+        {2, 0, 3, 3, 1},            // B
+        {2, 3, 0, 1, 3},           // C
+        {INT_MAX, 3, 1, 0, 3},    // D
+        {INT_MAX, 1, 3, 3, 0}    // E
         };
 
-    vector<int> cities = {0, 1, 2, 3, 4}; // Cities represented by indices (A, B, C, D, E)
+    vector<int> cities = {0, 1, 2, 3, 4}; // Cities represented by indices (1=A, 2=B, 3=C, 4=D, 5=E)
     const vector<char> cityNames = {'A', 'B', 'C', 'D', 'E'};
     
     int minDistance = INT_MAX;
@@ -63,7 +63,7 @@ int main()
     {
         cout << cityNames[city] << " ";
     }
-    cout << cityNames[bestRoute[0]] << '\n'; // Return to the starting city
+    cout << cityNames[bestRoute[0]] << '\n'; // Return to starting city
 
     return 0;
 }
